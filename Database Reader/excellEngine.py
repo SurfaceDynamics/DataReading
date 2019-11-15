@@ -19,11 +19,11 @@ class ExcellEngine:
         print(Path)
         workbook = xlsxwriter.Workbook(Path + '.xlsx')
         self._addWorkSheet(workbook, "Monthly Data",
-                           ("Month", "Tool time [s]", "Distance [m]", "Distance pr hour [m/h]"), MonthList)
+                           ("Month", "Tool time [h]", "Distance [m]", "Distance pr hour [m/h]"), MonthList)
         self._addWorkSheet(workbook, "Daily Data",
-                           ("Date", "Tool time [s]", "Distance [m]", "Distance pr hour [m/h]"), DayList)
+                           ("Date", "Tool time [h]", "Distance [m]", "Distance pr hour [m/h]"), DayList)
         self._addWorkSheet(workbook, "Raw Data",
-                           ("Index", "Date", "Start Time", "End Time", "Tool time [s]",
+                           ("Index", "Date", "Start Time", "End Time", "Tool time",
                             "Distance [m]", "Distance pr hour [m/h]"), FullList)
 
 
