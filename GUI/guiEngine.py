@@ -231,7 +231,7 @@ class GuiEngine:
     def DrawDragNDrop(self):
         if self._initiationFlag:
             self.DragNDropFlag = False
-            self._pathMSG = "Drop here"
+            self._pathMSG = "Drag here!"
             self._initiationFlag = False
             self._shaderGUI.use()
             self._shaderGUI.int("type", 1)
@@ -250,8 +250,11 @@ class GuiEngine:
             try:
                 if str(sqlTest[1]) == "sqlite":
                     self.DragNDropFlag = True
+                    self._pathMSG = "File: " + str(sqlTest[0])
                     self._shaderGUI.vec3("mainColor", np.array([0.0, 0.7, 0.0]))
                 else:
+                    self.DragNDropFlag = False
+                    self._pathMSG = "Cannot read fileformat: ." + str(sqlTest[1])
                     self._shaderGUI.vec3("mainColor", np.array([0.7, 0.1, 0.0]))
             except:
                 self._shaderGUI.vec3("mainColor", np.array([0.7, 0.1, 0.0]))
